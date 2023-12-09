@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --velocidade: 7s;
+}
+
+body {
+    background-color: #e1d694;
+    overflow: hidden;
+    font-family: "Press Start 2P";
+}
+
+#fim-de-jogo {
+    position: absolute;
+    z-index: 999;
+    background: #e1d694;
+    padding: 2rem;
+    outline: 5px solid #543200;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    flex-direction: column;
+    gap: 30px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+button {
+    background: #e86102;
+    padding: 0.7rem 2rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px #543200;
+    color: white;
+    font-family: "Press Start 2P";
+    font-size: 20px;
+    border: 5px solid #fefae9;
+    outline: 5px solid #543200;
+    cursor: pointer;
+}
+
+#fim-de-jogo h1 {
+    color: #fefae9;
+    text-shadow: 1px 1px 2px #3b2400;
+    font-size: 30px;
+}
+
+#jogo {
+    background-image: url(./props/background.png);
+    width: 100vw;
+    height: 600px;
+    overflow: hidden;
+}
+
+#chao {
+    background-image: url(./props/background-baixo.png);
+    width: 100vw;
+    height: 60px;
+    position: absolute;
+    top: 575px;
+    animation: moverChao var(--velocidade) infinite linear;
+}
+
+#passaro {
+    background: url(./props/flappy-bird-flying.gif);
+    background-size: cover;
+    position: absolute;
+    width: 60px;
+    height: 45px;
+    left: 50px;
+}
+
+.cano-alto {
+    background: url(./props/cano-alto.png);
+    background-size: cover;
+    background-position: bottom;
+    position: absolute;
+    width: 100px;
+    z-index: 999;
+}
+
+.cano-baixo {
+    background: url(./props/cano-baixo.png);
+    background-size: cover;
+    background-position: top;
+    position: absolute;
+    width: 100px;
+    z-index: 999;
+}
+
+.canos {
+    width: 100vw;
+    height: 600px;
+}
+
+.cano {
+    animation: mover var(--velocidade) linear;
+}
+
+@keyframes mover {
+    0% {
+        right: -100px;
+    }
+
+    100% {
+        right: 100vw;
+    }
+}
+
+@keyframes moverChao {
+    0% {
+        background-position: 100px 0;
+    }
+
+    100% {
+        background-position: -100vw 0;
+    }
+}
